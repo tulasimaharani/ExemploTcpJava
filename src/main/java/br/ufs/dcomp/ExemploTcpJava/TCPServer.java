@@ -26,8 +26,16 @@ public class TCPServer{
             System.out.println("[OK] ]");
             
             String msg = new String(buf); // Mapeando vetor de bytes recebido para String
-            
             System.out.println("  Mensagem recebida: "+ msg);
+            
+            String msg1 = "Olá, DCOMP!!!";
+            byte[] buf1 = msg1.getBytes(); // Obtendo a respresntação em bytes da mensagem
+            
+            System.out.print("[ Enviando mensagem    ..............................  ");
+            os.write(buf1);
+            System.out.println("[OK] ]");
+            
+            
         }catch(Exception e){System.out.println(e);}    
         System.out.println("[ FIM ]");
     }

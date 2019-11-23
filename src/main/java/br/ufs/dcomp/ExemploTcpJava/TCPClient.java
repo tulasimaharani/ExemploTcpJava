@@ -20,6 +20,15 @@ public class TCPClient{
             System.out.print("[ Enviando mensagem    ..............................  ");
             os.write(buf);
             System.out.println("[OK] ]");
+            
+            byte[] buf1 = new byte[20];
+            System.out.print("[ Aguardando recebimento de mensagem   ..............  ");
+            is.read(buf1); // Operação bloqueante (aguardando chegada de dados)
+            System.out.println("[OK] ]");
+            
+            String msg1 = new String(buf1); // Mapeando vetor de bytes recebido para String
+            System.out.println("  Mensagem recebida: "+ msg1);
+            
         }catch(Exception e){System.out.println(e);}    
         System.out.println("[ FIM ]");
     }
